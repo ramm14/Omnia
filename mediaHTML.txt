@@ -1,0 +1,19 @@
+<div class="col-4 my-media mt-2">
+    <div class="media" >
+        <img src="https://m.media-amazon.com/images/I/8107CDBxwRL.jpg" alt="" class="img-fluid media-cover">
+    </div>
+    <div class="media">
+        <img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781421543260/naoki-urasawas-21st-century-boys-vol-1-9781421543260_hr.jpg" alt="" class="img-fluid media-cover">
+    </div>
+</div>
+
+.my-media{
+    display: flex;
+    justify-content: center;
+    outline: 6px solid black;
+    padding: 1.5%;
+}
+.media-cover{
+    width: 100%;
+    height: 100%;
+}

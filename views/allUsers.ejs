@@ -1,0 +1,14 @@
+<% layout('layout/boilerplate') -%>
+<div class="row">
+    <% for(let user of users) {%>
+  <div class="col-md-4">
+    <div class="card d-flex flex-row">
+      <img src="<%= user.profilePicture.url %>" class="img-fluid" alt="Image" style="width: 100px; height: 150px;">
+      <div class="card-body">
+        <h5 class="card-title"><%= user.username %></h5>
+        <p class="card-text">Posts : <%= user.posts.length %></p>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</div>

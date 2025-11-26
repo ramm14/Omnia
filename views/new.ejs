@@ -1,0 +1,24 @@
+<% layout('layout/boilerplate') -%>
+<div class="outer-div mt-5">
+    <div class="thought ">
+        <form method="POST" action="/<%= user.id %>/newthought">
+            <div class="thought-headline ">
+                <div class="avatar ">
+                    <img src="<%= user.profilePicture.url %>" class="img-fluid userIcon"alt="User Icon">
+                </div>
+                <a href="/<%= user.id%>/profile"style="text-decoration: none" class="mt-3 userLink"> <%= user.username %> </a>
+            </div>
+            <div class="thought-body mt-4" id="newTextArea">
+                <textarea class="newText" rows="4" cols="60" maxlength="240" name="text" id="text">
+                </textarea>
+            </div>
+            <div class="time-div mt-2">
+                <div>
+                </div>
+            </div>
+        <div id="button-center" class="mt-2">
+            <button type="submit" class="btn btn-dark">Submit</button>
+        </div>
+        </form>
+    </div>
+</div>

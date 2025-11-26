@@ -1,0 +1,258 @@
+body{
+    font-family: "Work Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    margin: auto;
+    padding: 0;
+    background-image: url("https://images.pexels.com/photos/355321/pexels-photo-355321.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
+}
+.user-card{
+    display: flex;
+    flex-direction: row;
+}
+
+#mediaSearchContainer{
+    width: 50%;
+    height: 400px;
+    background:  white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25%;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 50x;
+    border-color: navy;
+}
+
+#mediaSection{
+    width: 80%;
+}
+
+#movieBg{
+    display: flex;
+    justify-content: center;
+    border-radius: 25px;
+    padding: 25px
+}
+
+.movie-card{
+    font-weight:600;
+}
+
+.welcome-banner{
+    background-color: #000000;
+    padding: 5px;
+}
+
+.custom-nav a {
+    color: white !important;
+}
+.custom-nav{
+    background-color: black !important;
+}
+.card{
+    display: flex;
+    width: 70%;
+}
+
+.card-container{
+    display: flex !important;
+    justify-content: center !important;
+}
+html{
+    margin: 0;
+    padding: 0;
+}
+.signup-body{
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+}
+
+.banner{
+    background-color: #000000;
+}
+
+.user-container{
+    display: flex;
+}
+
+
+
+.profile-thought{
+    display: flex;
+    background-color: #1A3636 !important;
+    width: 100% !important;
+    color: white;
+
+}
+
+#profile-avatar{
+    margin-bottom: 10%;
+}
+
+#loginBtn{
+    background-color: #000000 !important;
+    border-color: #123524 !important;
+    width: 20%;
+}
+
+#signupForm{
+    width: 55%;
+    color: black;
+}
+
+#button-center{
+    display: flex;
+    justify-content: center;
+}
+#simpleX{
+    all: unset;
+    cursor: pointer;
+    color: white;
+}
+.delete-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+.bio{
+    width: 50%;
+}
+
+.newText{
+    background-color: #123524;
+    color: white;
+    width: 100%;
+    border: 0; 
+}
+.outer-div{
+    display: flex;
+    justify-content: center;
+}
+.thought-headline{
+    display: flex;
+    flex-direction: row;
+}
+.form-btn{
+    background-color: #000000 !important;
+    border-color: #123524 !important;
+    width: 20%;
+}
+
+.form-banner{
+    display: flex;
+    justify-content: center;
+    color: #eee;
+}
+.alert-banner{
+    background-color: #000000 !important;
+    color: #eee !important;
+}
+
+#bioText {
+    background-color: #000000;
+    color: white;
+    width: 100%;
+}
+
+#update-profilepic{
+    width: 40%;
+}
+
+.time-div{
+    display: flexbox;
+    justify-items: flex-start;
+    font-size: 12px;
+}
+.addBtn{
+    margin: 0 auto;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center;     /* Vertical centering */
+  height: 200px;           /* Needed to see vertical centering */
+  background: #eee;
+}
+.svg-container{
+    display: flex;
+    justify-content: flex-start;
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+svg{
+    width: 50%;
+    height: 50%;
+}
+
+.profile-page{
+    background-color: #000000;
+    color: white;
+}
+.futuristic-border {
+  border: 1,5px solid white;
+  border-radius: 10px;
+  padding: 16px;
+  color: white; 
+  box-shadow: 0 0 10px white, 0 0 20px #006400 inset;
+}
+
+
+
+.navbar{
+    color: black !important;
+}
+.home-searchBtn{
+    transition: 1.5s;
+}
+.home-searchBtn:hover{
+    background-color: white;
+    color: black;
+}
+
+.peoples-thoughts{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+
+.avatar {
+  width: 55px;
+  height: 55px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 5%;
+}
+
+.userLink{
+    color: white;
+}
+
+.thought {
+    display: flex;
+    flex-direction: column;
+    outline-color: #537D5D;
+    outline-width: 100px;
+    background-color: #123524;
+    width: 65%;
+    border-radius: 20px;
+    padding: 30px;
+    justify-content: flex-start;
+}

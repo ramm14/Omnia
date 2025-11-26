@@ -1,0 +1,11 @@
+<% layout('layout/boilerplate') -%>
+<div class="container text-center" id="movieBg">
+    <div class="card movie-card mb-2" style="width: 18rem;">
+      <img src=<%= movieData.Poster %> class="card-img-top img-fluid" alt="...">
+      <div class="card-body">
+          <h5 class="card-title"><%= movieData.Title %></h5>
+          <p class="card-text">Released : <%= movieData.Year %></p>
+          <a href="#" class="btn btn-dark" style="width: 35%">Add</a>
+      </div>
+  </div>
+</div>
