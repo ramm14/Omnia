@@ -57,7 +57,7 @@ app.use(express.static('static'));
 
 
 const sessionConfig = {
-    secret: 'thisshouldbeabettersecret!',
+    secret: 'insertYourSecret',
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -75,7 +75,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-mongoose.connect("mongodb://localhost:27017/OmniaDB").then(()=>{
+mongoose.connect("Insert Your Local MongoDB_URI").then(()=>{
     console.log("Connected to DB!")
 }).catch((err) =>{
     console.log("There was an error");
