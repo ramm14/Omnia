@@ -2,6 +2,8 @@ const { Post } = require("../models/posts");
 
 const { User } = require("../models/users");
 
+const { connectDB } = require("../utils/dbConnection");
+
 module.exports.showHomePage = async (req , res , next) => {
         const posts =  await Post.find({}).populate({
             path: "user",
