@@ -57,7 +57,7 @@ app.use(express.static('static'));
 
 
 const sessionConfig = {
-    secret: 'thisshouldbeabettersecret!',
+    secret: 'insertYourSecret',
     resave: false,
     saveUninitialized: true,
     cookie: {
