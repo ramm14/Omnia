@@ -5,6 +5,8 @@ const { User } = require("../models/users");
 const { connectDB } = require("../utils/dbConnection");
 
 module.exports.showHomePage = async (req , res , next) => {
+    const currentDBStatus = req.locals.dbConnected;
+    req.locals.dbConnected = await connectDB(currentDBStatus);
         const posts =  await Post.find({}).populate({
             path: "user",
             populate : {
@@ -19,7 +21,6 @@ module.exports.showHomePage = async (req , res , next) => {
 module.exports.makeNewThought = async (req , res , next) => {
     const currentDBStatus = req.locals.dbConnected;
     req.locals.dbConnected = await connectDB(currentDBStatus);
-    const dbStatus = req.app.locals.dbConnected;
     const user = req.user;
     res.render('new' , { user });
 }

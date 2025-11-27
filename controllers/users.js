@@ -4,7 +4,7 @@ const { Post } = require("../models/posts");
 
 const { cloudinary } = require("../cloudinary");
 
-const connectDB = require("../utils/dbConnection");
+const { connectDB } = require("../utils/dbConnection");
 
 module.exports.getSignUpPage = async  (req , res , next) => {
     res.render('signup');
