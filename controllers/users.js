@@ -87,8 +87,6 @@ module.exports.findSearchUser = async (req , res) => {
         res.redirect("/thoughts");
     }
 
-
-
 }
 
 module.exports.getLoginPage = async  (req , res) => {
@@ -106,6 +104,7 @@ module.exports.getAllUsers = async (req , res ) => {
     const users = await User.find({});
     res.render('allUsers' , { users });
 }
+
 
 module.exports.logoutUser = async  (req , res) => {
     req.logout(function(err) {

@@ -75,7 +75,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-mongoose.connect("mongodb://localhost:27017/OmniaDB").then(()=>{
+mongoose.connect("mongodb+srv://gitHubViewer:github123@omniacluster.kzv6in9.mongodb.net/?appName=OmniaCluster").then(()=>{
     console.log("Connected to DB!")
 }).catch((err) =>{
     console.log("There was an error");

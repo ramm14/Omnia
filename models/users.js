@@ -8,6 +8,12 @@ const profilePicSchema = new Schema({
     filename: String
 })
 
+const movieSchema = new Schema({
+    title: String,
+    poster: String,
+    year: String,
+});
+
 const userSchema = new Schema(
     {
         posts: [{
@@ -23,7 +29,10 @@ const userSchema = new Schema(
         },
         bio: {
             type: String
-        }
+        },
+        movies: [movieSchema]
+
+
     }
 )
 userSchema.plugin(passportLocaleMoongose);
