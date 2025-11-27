@@ -15,11 +15,16 @@ module.exports.showHomePage = async (req , res , next) => {
 
 
 module.exports.makeNewThought = async (req , res , next) => {
+    const currentDBStatus = req.locals.dbConnected;
+    req.locals.dbConnected = await connectDB(currentDBStatus);
+    const dbStatus = req.app.locals.dbConnected;
     const user = req.user;
     res.render('new' , { user });
 }
 
 module.exports.getNewThoughtData = async (req, res, next ) => {
+    const currentDBStatus = req.locals.dbConnected;
+    req.locals.dbConnected = await connectDB(currentDBStatus);
     const thoughtData = req.body;
     const owner = await User.findById(req.params.id);
     console.log(owner)
@@ -38,6 +43,8 @@ module.exports.getNewThoughtData = async (req, res, next ) => {
 }
 
 module.exports.deleteThought = async (req , res) => {
+    const currentDBStatus = req.locals.dbConnected;
+    req.locals.dbConnected = await connectDB(currentDBStatus);
     await Post.findByIdAndDelete(req.params.id);
     res.redirect('/thoughts');
 }

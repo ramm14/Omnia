@@ -19,7 +19,7 @@ const flash = require('connect-flash');
 
 const sanitizeV5 = require('./utils/mongoSanitizeV5.js');
 
-
+const { connectDB } = require('./utils/dbConnection');
 
 const ExpressError = require('./utils/ExpressError');
 
@@ -75,18 +75,15 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-mongoose.connect("mongodb+srv://gitHubViewer:github123@omniacluster.kzv6in9.mongodb.net/?appName=OmniaCluster").then(()=>{
-    console.log("Connected to DB!")
-}).catch((err) =>{
-    console.log("There was an error");
-    console.log(err);
-})
+connectDB().then(() => console.log("DB Connected")).catch((err) => console.log("DB Connection Error: ", err));
+
 
 app.use((req, res, next) => {
     res.locals.currentUser = req.user;
     console.log(res.locals.currentUser);
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
+    res.locals.dbConnected = true;
     next();
 })
 

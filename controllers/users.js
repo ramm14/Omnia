@@ -4,11 +4,15 @@ const { Post } = require("../models/posts");
 
 const { cloudinary } = require("../cloudinary");
 
+const connectDB = require("../utils/dbConnection")
+
 module.exports.getSignUpPage = async  (req , res , next) => {
     res.render('signup');
 }
 
 module.exports.addNewUser = async  (req , res , next) => {
+    const currentDBStatus = res.locals.dbConnected;
+    req.locals.dbConnected = await connectDB(currentDBStatus);
     try{
         const { email, username, password } = req.body;
         const { filename, path } = req.file;
@@ -27,11 +31,15 @@ module.exports.addNewUser = async  (req , res , next) => {
 }
 
 module.exports.getEditProfilePage = async (req , res , next) => {
+    const currentDBStatus = res.locals.dbConnected;
+    req.locals.dbConnected = await connectDB(currentDBStatus);
     const user = await User.findById(req.user.id);
     res.render("editProfile" , { user } );
 }
 
 module.exports.updateProfile = async  (req , res, next) => {
+    const currentDBStatus = res.locals.dbConnected;
+    req.locals.dbConnected = await connectDB(currentDBStatus);
     const user = await User.findById(req.user.id);
     if (req.file){
         const { filename, path } = req.file;
@@ -44,6 +52,8 @@ module.exports.updateProfile = async  (req , res, next) => {
 }
 
 module.exports.profilePage = async  (req , res ) => {
+    const currentDBStatus = res.locals.dbConnected;
+    req.locals.dbConnected = await connectDB(currentDBStatus);
     const user = await User.findById(req.user.id).populate({
         path: "posts",
         populate : {
@@ -54,6 +64,8 @@ module.exports.profilePage = async  (req , res ) => {
 }
 
 module.exports.getOtherUserProfile = async  (req , res ) => {
+    const currentDBStatus = req.locals.dbConnected;
+    req.locals.dbConnected = await connectDB(currentDBStatus);
     console.log("here");
     const { id } = req.params;
     console.log(id);
@@ -67,6 +79,8 @@ module.exports.getOtherUserProfile = async  (req , res ) => {
 }
 
 module.exports.deleteUser =  async  (req , res ) => {
+    const currentDBStatus = req.locals.dbConnected;
+    req.locals.dbConnected = await connectDB(currentDBStatus);
     if (req.user.id != req.params.id){
         req.flash('error' , 'Please login into your account');
         return res.redirect("/login");
@@ -77,6 +91,8 @@ module.exports.deleteUser =  async  (req , res ) => {
 }
 
 module.exports.findSearchUser = async (req , res) => {
+    const currentDBStatus = req.locals.dbConnected;
+    req.locals.dbConnected = await connectDB(currentDBStatus);
     try{
         const { searchedUser } = req.body;
         const user = await User.findOne({username:searchedUser});
