@@ -5,7 +5,7 @@ const { Post } = require("../models/posts");
 const { cloudinary } = require("../cloudinary");
 
 module.exports.getSignUpPage = async  (req , res , next) => {
-    res.render('signUp');
+    res.render('signup');
 }
 
 module.exports.addNewUser = async  (req , res , next) => {
