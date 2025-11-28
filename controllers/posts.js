@@ -33,6 +33,10 @@ module.exports.getNewThoughtData = async (req, res, next ) => {
     console.log(owner)
     const now = new Date();
     const trimmedtext = thoughtData.text.trimStart().trimEnd();
+    if(trimmedtext.length < 4){
+        req.flash('error' , 'Thought cannot be less than 4 characters long.');
+        return res.redirect('/newthought');
+    }
     thoughtData.dateCreated = now.toLocaleDateString() + " ~ " + now.toLocaleTimeString( { hour: "2-digit", minute: "2-digit" });
     thoughtData.user = owner.id;
     thoughtData.text = trimmedtext;

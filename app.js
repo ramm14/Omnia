@@ -116,9 +116,9 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render('errorPage', { err });
 });
 
-// app.listen(3000, ()=>{
-//     console.log("Server is running...");
-// })
+app.listen(3000, ()=>{
+    console.log("Server is running...");
+})
 
-module.exports = app;
+// module.exports = app;
 

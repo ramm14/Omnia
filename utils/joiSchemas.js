@@ -33,7 +33,7 @@ const joiUserSchema = Joi.object({
 }).required();
 
 const joiPostSchema = Joi.object({
-    text: Joi.string().required().min(4).max(250)
+    text: Joi.string().required()
 }).required();
 
 const usernameSearchSchema = Joi.object({
