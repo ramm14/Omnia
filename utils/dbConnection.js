@@ -7,10 +7,7 @@ async function connectDB(dbConnected){
         return dbConnected;
     }
     try {
-        const db = await mongoose.connect("mongodb+srv://gitHubViewer:github123@omniacluster.kzv6in9.mongodb.net/?appName=OmniaCluster", {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
+        const db = await mongoose.connect(process.env.MONGODB_URI);
         console.log("Connected to DB!");
         return true;
         }

@@ -17,6 +17,8 @@ const engine = require('ejs-mate');
 
 const flash = require('connect-flash');
 
+const MongoStore = require('connect-mongo');
+
 const sanitizeV5 = require('./utils/mongoSanitizeV5.js');
 
 const { connectDB } = require('./utils/dbConnection');
@@ -54,12 +56,19 @@ app.use(express.json())
 
 app.use(express.static('static'));
 
-
+const sessionstorage = MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+      dbName: "OmniaDB",       
+      collectionName: "usersessions",  
+      ttl: 14 * 24 * 60 * 60,      
+      autoRemove: "native"   
+});
 
 const sessionConfig = {
-    secret: 'insertYourSecret',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
+    store: sessionstorage,
     cookie: {
         httpOnly: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
